@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react'
 
 import './SearchPage.css'
 
-import SearchBar from './SearchBar.js'
-import ResultsBox from './ResultBox.js'
-import Calculator from './Calculator.js'
+import SearchBar from 'components/SearchBar/SearchBar'
+import ResultsBox from 'components/ResultBox/ResultBox'
 
 const LoadingSpinner = () => <div className='loading-spinner'> </div>
 
@@ -25,8 +24,15 @@ const InformationPane = ({ measurements }) => {
   )
 }
 
+const ResultSetSelector = () => (
+  <div className='page-select'>
+    1 2 3 4
+  </div>
+)
+
 const SearchPage = () => {
   const [results, setResults] = useState([])
+  const [allResults, setAllResults] = useState([])
   const [measurements, setMeasurements] = useState({})
   const [loading, setLoading] = useState(false)
 
@@ -42,7 +48,11 @@ const SearchPage = () => {
       })
       const obj = await response.json()
       if (obj) {
+        // todo splice by [0:X]
         setResults(obj.results)
+
+        setAllResults(obj.results)
+
         setMeasurements(obj.measurements)
       }
     } catch (err) {
@@ -66,7 +76,13 @@ const SearchPage = () => {
       <div className='container'>
         <InformationPane measurements={measurements} />
         {loading ? <LoadingContainer /> : <ResultsBox results={results} />}
+      
+        <ResultSetSelector/>
       </div>
+
+      <footer>
+        Copyright &copy; 2019. All rights reserved.
+      </footer>
     </>
   )
 }
