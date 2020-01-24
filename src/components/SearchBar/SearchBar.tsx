@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 
-export default ({ processSearch }) => {
-  const [query, setQuery] = useState('')
-  const handleOnChange = (e) => setQuery(e.target.value)
+interface SearchBarProps {
+  processSearchHandler: (query: string) => void
+}
 
-  const handleKeyUp = (e) => { if (e.keyCode === 13) processSearch(query) }
+const SearchBar = ({ processSearchHandler }: SearchBarProps) => {
+  const [query, setQuery] = useState('')
+
+  const handleOnChange = (e: any) => setQuery(e.target.value)
+  const handleKeyUp = (e: any) => { if (e.keyCode === 13) processSearchHandler(query) }
 
   return (
     <div className='search-bar-container'>
@@ -19,4 +23,8 @@ export default ({ processSearch }) => {
       </div>
     </div>
   )
+}
+
+export {
+  SearchBar
 }

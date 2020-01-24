@@ -4,12 +4,12 @@ import * as serviceWorker from './serviceWorker'
 
 import './index.css'
 
-import SearchPage from './pages/SearchPage/SearchPage'
+import { SearchPage } from './pages/SearchPage/SearchPage'
 
 // TODO routing if any.
 const App = () => {
   return (
-    <SearchPage />
+    <SearchPage/>
   )
 }
 

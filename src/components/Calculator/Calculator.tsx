@@ -2,7 +2,12 @@ import React, { useState } from 'react'
 
 import './Calculator.css'
 
-const CalcButton = ({ value, onClick }) => {
+interface CalcButtonProps {
+  value: string
+  onClick: () => void
+}
+
+const CalcButton = ({ value, onClick }: CalcButtonProps) => {
   return (
     <div onClick={onClick} className='calc-button'>
       {value}
@@ -10,7 +15,11 @@ const CalcButton = ({ value, onClick }) => {
   )
 }
 
-const ResultBox = ({result}) => {
+interface CalcResultBox {
+  result: string
+}
+
+const CalcResultBox = ({result}: CalcResultBox) => {
   return (
     <div className='calc-result'>
       {result}
@@ -18,10 +27,10 @@ const ResultBox = ({result}) => {
   )
 }
 
-export default () => {
-  let [result, setResult] = useState('')
+const Calculator = () => {
+  let [result, setResult] = useState<string>('')
 
-  const buttons = [1, 2, 3, 4, 5, 6, 7, 8, 9].map((val) => {
+  const buttons = ['1', '2', '3', '4', '5', '6', '7', '8', '9',' 0'].map((val: string) => {
     let handleOnClick = () => {
       setResult(result + val)
     }
@@ -35,10 +44,14 @@ export default () => {
 
   return (
     <div className='calc-container'>
-      <ResultBox result={result} />
+      <CalcResultBox result={result} />
       <div className='calc-buttons'>
         {buttons}
       </div>
     </div>
   )
+}
+
+export {
+  Calculator
 }
