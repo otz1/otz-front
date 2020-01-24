@@ -1,5 +1,6 @@
 import React from 'react'
 import { Result as ResultModel } from 'model/model'
+import './ResultBox.css'
 
 interface ResultProps {
   result: ResultModel

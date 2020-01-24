@@ -37,7 +37,7 @@ const SearchPage = () => {
     <>
       <header>
         <div className='container'>
-          <h1>otz.it</h1>
+          <h1>otz.it <span className='tagline'>keep your data yours - otz it!</span></h1>
           <SearchBar processSearchHandler={handleProcessSearch} />
         </div>
       </header>
@@ -47,7 +47,7 @@ const SearchPage = () => {
       </div>
 
       <footer>
-        Copyright &copy; 2020. All rights reserved.
+        <p>Copyright &copy; 2020. All rights reserved.</p>
       </footer>
     </>
   )

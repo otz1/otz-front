@@ -1,0 +1,18 @@
+.loading-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 1em;
+  margin: 2em 0;
+}
+
+.loading-spinner {
+	pointer-events: none;
+	width: 2.5em;
+	height: 2.5em;
+	border: 0.4em solid transparent;
+	border-color: #f5f5f5;
+	border-top-color: #111;
+	border-radius: 50%;
+	animation: loading-spinner 0.8s linear infinite;
+}
