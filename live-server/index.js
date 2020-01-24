@@ -29,7 +29,9 @@ const resultFactory = (pred) => {
     imageSource: 'http://placehold.it/256x256',
     thumbnailSource: 'http://placehold.it/256x256',
   }
-  pred(result)
+  if (pred) {
+    pred(result)
+  }
   return result
 }
 
@@ -41,12 +43,25 @@ const responseFactory = (pred) => {
     measurements: {},
     numPages: 1,
   }
-  pred(response)
+  if (pred) {
+    pred(response)
+  }
   return response
 }
 
 const queryMaps = {
-  'basic': responseFactory((resp) => resp.numPages = 5)
+  'basic': responseFactory(),
+  'multiple': responseFactory((resp) => resp.results = [
+    resultFactory(),
+    resultFactory(),
+    resultFactory(),
+  ]),
+  'hundreds': responseFactory((resp) => {
+    resp.numPages = 15
+    for (let i = 0; i < 256; i++) {
+      resp.results.push(resultFactory())
+    }
+  })
 }
 
 app.get('/search', delay(250, (req, res) => {

@@ -1,0 +1,14 @@
+.button {
+  display: inline-block;
+  background: #0654ba;
+  margin: 1em 0;
+  padding: 1em;
+}
+.button:hover {
+  background: #0654ba;
+}
+
+.fake-link {
+  color: white;
+  text-decoration: none;
+}
