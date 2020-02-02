@@ -31,11 +31,13 @@ const resultFactory = (pred) => {
 }
 
 const responseFactory = (pred) => {
+  const results = [resultFactory((result) => result.title = 'This is a title!')]
   const response = {
-    results: [
-      resultFactory((result) => result.title = 'This is a title!')
-    ],
-    measurements: {},
+    results: results,
+    measurements: {
+      elapsedTime: 3.141,
+      resultCount: results.length,
+    },
     numPages: 1,
   }
   if (pred) {

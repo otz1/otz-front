@@ -15,7 +15,7 @@ const SearchResultContainer = ({searchResult}: SearchResultContainerProps) => {
 
   return (
     <>
-      <InformationPane measurements={measurements} />
+      { measurements.elapsedTime && <InformationPane measurements={measurements} /> }
       <ResultBox results={results} numPages={numPages} />
     </>
   )

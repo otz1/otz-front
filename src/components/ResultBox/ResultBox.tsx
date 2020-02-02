@@ -30,7 +30,7 @@ const ResultBox = ({ results, numPages }: ResultBoxProps) => {
       <div className='results-container'>
         {resultSet}
       </div>
-      <ResultSetSelector />
+      { numPages > 1 && <ResultSetSelector /> }
     </>
   )
 }
