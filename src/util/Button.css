@@ -11,3 +11,6 @@
   color: white;
   text-decoration: none;
 }
+.fake-link:hover {
+  cursor: pointer;
+}

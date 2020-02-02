@@ -19,6 +19,10 @@ const SearchPage = () => {
   const [loading, setLoading] = useState(false)
 
   const handleProcessSearch = async (query: string) => {
+    if (!query || query.length === 0) {
+      return
+    }
+
     setLoading(true)
 
     const response = await SearchService.processSearch(query)

@@ -13,9 +13,9 @@ const Button = ({onClick, children, ...classNames}: ButtonProps) => {
   }
 
   return (
-    <a className='button fake-link' onClick={handleClick} href='#' {...classNames}>
+    <span className='button fake-link' onClick={handleClick} {...classNames}>
       {children}
-    </a>
+    </span>
   )
 }
 
