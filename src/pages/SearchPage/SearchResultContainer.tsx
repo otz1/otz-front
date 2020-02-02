@@ -11,12 +11,12 @@ interface SearchResultContainerProps {
 }
 
 const SearchResultContainer = ({searchResult}: SearchResultContainerProps) => {
-  const {measurements, results} = searchResult
+  const {measurements, results, numPages} = searchResult
 
   return (
     <>
       <InformationPane measurements={measurements} />
-      <ResultBox results={results} />
+      <ResultBox results={results} numPages={numPages} />
     </>
   )
 }

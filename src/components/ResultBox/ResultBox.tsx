@@ -1,38 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Result as ResultModel } from 'model/model'
+import { Result } from './Result'
 import './ResultBox.css'
-
-interface ResultProps {
-  result: ResultModel
-}
-
-const Result = ({ result }: ResultProps) => {
-  const { href } = result
-
-  return (
-    <div className='result'>
-      <div className='result-head'>
-        <h2 className='title'><a href=''>{href}</a></h2>
-        <h3 className='raw-link'><a href=''>https://google.com/foo bar baz</a></h3>
-      </div>
-      <div className='result-body'>
-        <p>This is a snippet of information that is relevant to the page.</p>
-      </div>
-    </div>
-  )
-}
-
-const ResultSetSelector = () => (
-  <div className='page-select'>
-    1 2 3 4
-  </div>
-)
 
 interface ResultBoxProps {
   results: ResultModel[]
+  numPages: number
 }
 
-const ResultBox = ({ results }: ResultBoxProps) => {
+const getResultsAtPage = (page: number, allResults: ResultModel[]): ResultModel[] => {
+  const numResults = allResults.length
+  const maxResultsPerPage = 10
+  return allResults.slice()
+}
+
+const ResultBox = ({ results, numPages }: ResultBoxProps) => {
+  const [currentResults, setCurrentResults] = useState(results)
+
   if (!results) {
     return null
   }
@@ -50,6 +34,12 @@ const ResultBox = ({ results }: ResultBoxProps) => {
     </>
   )
 }
+
+const ResultSetSelector = () => (
+  <div className='page-select'>
+    1 2 3 4
+  </div>
+)
 
 export {
   ResultBox

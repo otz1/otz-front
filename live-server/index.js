@@ -4,12 +4,7 @@ const cors = require('cors')
 
 const app = express()
 app.use(bodyParser.json())
-app.use(cors({
-  origin: '*',
-  methods: '*',
-  headers: '*',
-  optionsSuccessStatus: 200
-}))
+app.use(cors())
 
 const port = 8080
 
