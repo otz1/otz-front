@@ -23,6 +23,7 @@ const resultFactory = (pred) => {
     ranking: 1,
     imageSource: 'http://placehold.it/256x256',
     thumbnailSource: 'http://placehold.it/256x256',
+    href: 'http://google.com/'
   }
   if (pred) {
     pred(result)
