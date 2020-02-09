@@ -1,9 +1,13 @@
+const selectSearchClientHost = () => {
+  // todo production and staging servers
+  return 'otzbe.otzaf.org'
+}
+
 const SearchClient = {
-  Port: 8001,
-  Host: 'otzbe.otzaf.org',
+  Host: selectSearchClientHost(),
   
   search: async (query: string) => {
-    const response = await fetch(`http://${SearchClient.Host}:${SearchClient.Port}/search?query=${query}`, {
+    const response = await fetch(`https://${SearchClient.Host}/search?query=${query}`, {
       method: 'GET',
     })
     const results = await response.json()
