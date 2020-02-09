@@ -1,10 +1,10 @@
 .button {
   display: inline-block;
-  background: #0654ba;
+  background: #01cbae;
   padding: 1em;
 }
 .button:hover {
-  background: #0654ba;
+  background: #01cbae;
 }
 
 .fake-link {

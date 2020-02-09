@@ -41,7 +41,7 @@ const SearchPage = () => {
     <>
       <header>
         <div className='container'>
-          <h1>otz.it <span className='tagline'>keep your data yours - otz it!</span></h1>
+          <h1 className='logo'>{window.location.host} <span className='tagline'>search with otzit!</span></h1>
           <SearchBar processSearchHandler={handleProcessSearch} />
         </div>
       </header>
