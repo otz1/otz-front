@@ -1,6 +1,10 @@
 export interface Result {
   title: string
+  snippet: string
   href: string
+  ranking: number
+  thumbnailSource: string
+  imageSource: string
 }
 
 export interface SearchMeasurement {

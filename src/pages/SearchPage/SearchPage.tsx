@@ -7,6 +7,13 @@ import { SearchService } from 'services/searchService'
 
 import { LoadingContainer } from './LoadingUtils'
 import { SearchResultContainer } from './SearchResultContainer'
+import { Header } from 'components/Header/Header'
+import { Footer } from 'components/Footer/Footer'
+
+const resizeHeader = () => {
+  const header = document.querySelector('#top-header')
+  header?.classList.add('smaller')
+}
 
 const SearchPage = () => {
   const [searchResult, setSearchResult] = useState<SearchResult>({
@@ -23,6 +30,7 @@ const SearchPage = () => {
       return
     }
 
+    resizeHeader()
     setLoading(true)
 
     const response = await SearchService.processSearch(query)
@@ -39,20 +47,17 @@ const SearchPage = () => {
 
   return (
     <>
-      <header>
+      <Header>
+        <SearchBar processSearchHandler={handleProcessSearch} />
+      </Header>
+
+      <main>
         <div className='container'>
-          <h1 className='logo'>{window.location.host} <span className='tagline'>search with otzit!</span></h1>
-          <SearchBar processSearchHandler={handleProcessSearch} />
+          { loading ? <LoadingContainer/> : <SearchResultContainer searchResult={searchResult} />}
         </div>
-      </header>
+      </main>
 
-      <div className='container'>
-        { loading ? <LoadingContainer/> : <SearchResultContainer searchResult={searchResult} />}
-      </div>
-
-      <footer>
-        <p>Copyright &copy; 2020. All rights reserved.</p>
-      </footer>
+      <Footer/>
     </>
   )
 }

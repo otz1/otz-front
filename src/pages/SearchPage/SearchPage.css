@@ -1,16 +1,13 @@
 .container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   width: 60%;
-  padding: 1em;
   margin: 0 auto;
 }
 
-header {
-  display: block;
-  background: #3952ae;
-  width: 100%;
-  color: white;
+main {
+  margin: 1em;
 }
 
 .logo {
@@ -36,4 +33,15 @@ footer p {
   color: #01cbae;
   font-size: 14pt;
   font-weight: 700;
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .container {
+    width: 100%;
+  } 
 }

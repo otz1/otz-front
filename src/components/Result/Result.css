@@ -1,0 +1,38 @@
+.result {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1em;
+  background: #f1f1f1;
+  transition: all 0.9s ease-in-out;
+}
+
+.result-head .title {
+  font-size: 12pt;
+  color: red;
+}
+
+.result a {
+  color: #111;
+}
+
+.result .raw-link a {
+  color: rgba(10, 10, 10, 0.6);
+  text-decoration: none;
+  font-size: 11pt;
+}
+
+.result-thumb {
+  display: block;
+  width: 10%;
+}
+.result-thumb img {
+  max-width: 64px;
+  max-height: 64px;
+}
+
+.result-detail {
+  display: block;
+  width: 87%;
+}
