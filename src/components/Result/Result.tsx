@@ -10,11 +10,13 @@ interface ResultProps {
 const Result = ({ result }: ResultProps) => {
   const { title, href, thumbnailSource, snippet } = result
 
+  const showThumbnail = thumbnailSource && thumbnailSource !== ''
+
   return (
     <div className='result'>
-      <div className='result-thumb'>
+      { (showThumbnail) && <div className='result-thumb'>
         <img src={thumbnailSource}/>
-      </div>
+        </div> }
       <div className='result-detail'>
         <div className='result-head'>
           <h2 className='title'><a href={href}>{title}</a></h2>
