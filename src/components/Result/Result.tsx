@@ -8,7 +8,7 @@ interface ResultProps {
 }
 
 const Result = ({ result }: ResultProps) => {
-  const { href, thumbnailSource, snippet } = result
+  const { title, href, thumbnailSource, snippet } = result
 
   return (
     <div className='result'>
@@ -17,7 +17,7 @@ const Result = ({ result }: ResultProps) => {
       </div>
       <div className='result-detail'>
         <div className='result-head'>
-          <h2 className='title'><a href={href}>{href}</a></h2>
+          <h2 className='title'><a href={href}>{title}</a></h2>
           <h3 className='raw-link'><a href={href}>{href}</a></h3>
         </div>
         <div className='result-body'>
