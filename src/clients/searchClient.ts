@@ -9,6 +9,8 @@ const SearchClient = {
   search: async (query: string) => {
     const response = await fetch(`https://${SearchClient.Host}/search?query=${query}`, {
       method: 'GET',
+      headers: {
+      }
     })
     const results = await response.json()
     return results
