@@ -17,9 +17,11 @@ const resizeHeader = () => {
 
 const SearchPage = () => {
   const [searchResult, setSearchResult] = useState<SearchResult>({
+    query: '',
     results: [],
     measurements: {},
     numPages: 0,
+    searchTerms: [],
   })
 
   // TODO high order component for loading.
@@ -35,9 +37,11 @@ const SearchPage = () => {
 
     const response = await SearchService.processSearch(query)
     setSearchResult({
+      query: response.query,
       results: response.results,
       measurements: response.measurements,
-      numPages: response.numPages
+      numPages: response.numPages,
+      searchTerms: response.searchTerms,
     })
   }
 

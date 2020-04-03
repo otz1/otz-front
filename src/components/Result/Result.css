@@ -5,7 +5,11 @@
   width: 100%;
   padding: 1em;
   background: #f1f1f1;
-  transition: all 0.9s ease-in-out;
+  margin-bottom: 0.5em;
+}
+.result:hover {
+  background: #dbdbdb;
+  cursor: pointer;
 }
 
 .result-head .title {
@@ -35,4 +39,8 @@
 .result-detail {
   display: block;
   width: 87%;
+}
+
+.result-container-anchor {
+  text-decoration: none;
 }

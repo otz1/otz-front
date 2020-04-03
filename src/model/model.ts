@@ -13,7 +13,9 @@ export interface SearchMeasurement {
 }
 
 export interface SearchResult {
+  query: string
   results: Result[]
   measurements: SearchMeasurement
   numPages: number
+  searchTerms: string[]
 }

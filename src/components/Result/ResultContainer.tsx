@@ -6,6 +6,7 @@ import { ResultSetSelector } from './ResultSetSelector'
 
 interface ResultContainerProps {
   results: ResultModel[]
+  searchTerms: string[]
   numPages: number
 }
 
@@ -18,7 +19,7 @@ const sliceResultSet = (index: number) => {
   }
 }
 
-const ResultContainer = ({ results, numPages }: ResultContainerProps) => {
+const ResultContainer = ({ searchTerms, results, numPages }: ResultContainerProps) => {
   const [currentResults, setCurrentResults] = useState(results)
   const [resultRange, setResultRange] = useState(sliceResultSet(0))
 
@@ -28,7 +29,7 @@ const ResultContainer = ({ results, numPages }: ResultContainerProps) => {
 
   const rankedResults = results.slice(resultRange.start, resultRange.end).sort((a, b) => a.ranking - b.ranking)
   const resultSet = rankedResults.map((result: ResultModel, idx: number) => {
-    return <Result key={`result_${idx}`} result={result} />
+    return <Result key={`result_${idx}`} result={result} searchTerms={searchTerms} />
   })
 
   const onPageSelect = (index: number) => setResultRange(sliceResultSet(index))
