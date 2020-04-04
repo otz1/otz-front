@@ -32,14 +32,14 @@ const resultFactory = (pred) => {
 }
 
 const responseFactory = (pred) => {
-  const results = [resultFactory((result) => result.title = 'This is a title!')]
+  const results = [resultFactory((result) => { result.title = 'This is a title!' })]
   const response = {
     results: results,
     measurements: {
       elapsedTime: 3.141,
-      resultCount: results.length,
+      resultCount: results.length
     },
-    numPages: 1,
+    numPages: 1
   }
   if (pred) {
     pred(response)
@@ -48,13 +48,15 @@ const responseFactory = (pred) => {
 }
 
 const queryMaps = {
-  'basic': responseFactory(),
-  'multiple': responseFactory((resp) => resp.results = [
-    resultFactory(),
-    resultFactory(),
-    resultFactory(),
-  ]),
-  'hundreds': responseFactory((resp) => {
+  basic: responseFactory(),
+  multiple: responseFactory((resp) => {
+    resp.results = [
+      resultFactory(),
+      resultFactory(),
+      resultFactory()
+    ]
+  }),
+  hundreds: responseFactory((resp) => {
     resp.numPages = 15
     for (let i = 0; i < 256; i++) {
       resp.results.push(resultFactory())
@@ -69,9 +71,11 @@ app.get('/search', delay(250, (req, res) => {
   }
 
   // if we dont have a query mapped, return the title as the only response.
-  const defaultResponse = responseFactory((resp) => resp.results = [
-    resultFactory((result) => result.title = `Title for query '${query}'`)
-  ])
+  const defaultResponse = responseFactory((resp) => {
+    resp.results = [
+      resultFactory((result) => { result.title = `Title for query '${query}'` })
+    ]
+  })
   return res.json(defaultResponse)
 }))
 
