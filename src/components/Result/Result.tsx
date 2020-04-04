@@ -1,15 +1,14 @@
 import React from 'react'
 import './Result.css'
 
+// @ts-ignore
+import { Parser as HtmlToReactParser } from 'html-to-react'
+
 import { Result as ResultModel } from 'model/model'
 
 interface ResultProps {
   result: ResultModel
   searchTerms: string[]
-}
-
-const formatSnippet = (snippet: string, searchTerms: string[]) => {
-  return snippet
 }
 
 const Result = ({ result, searchTerms }: ResultProps) => {
@@ -29,7 +28,7 @@ const Result = ({ result, searchTerms }: ResultProps) => {
             <h3 className='raw-link'><a href={href}>{href}</a></h3>
           </div>
           <div className='result-body'>
-            <p>{formatSnippet(snippet, searchTerms)}</p>
+            <p>{new HtmlToReactParser().parse(snippet)}</p>
           </div>
         </div>
       </a>
