@@ -7,20 +7,10 @@
 }
 
 main {
-  margin: 1em;
 }
 
 .logo {
   color: #fff;
-}
-
-footer {
-  position: absolute;
-  bottom: 0;
-}
-footer p {
-  font-size: 10pt;
-  color: rgb(128, 128, 128);
 }
 
 @keyframes loading-spinner {
@@ -42,6 +32,6 @@ footer p {
 
 @media (min-width: 320px) and (max-width: 480px) {
   .container {
-    width: 100%;
+    width: 90%;
   } 
 }

@@ -7,22 +7,22 @@ import * as serviceWorker from './serviceWorker'
 import './index.css'
 
 import { SearchPage } from './pages/SearchPage/SearchPage'
+import { PrivacyPolicyPage } from './pages/PrivacyPolicy/PrivacyPolicyPage'
 
-const routes = () => {
-  return (
-    <>
-      <Route path='/'>
-        <SearchPage/>
-      </Route>
-    </>
-  )
+const RouteWithScroll = (children: any) => {
+  return <Route {...children} onEnter={() => window.scrollTo(0, 0)}/>
 }
 
 const App = () => {
   return (
     <Router>
-      <Switch>        
-        {routes()}
+      <Switch>
+        <RouteWithScroll exact path='/'>
+          <SearchPage/>
+        </RouteWithScroll>
+        <RouteWithScroll path='/privacy-policy'>
+          <PrivacyPolicyPage/>  
+        </RouteWithScroll>
       </Switch>
     </Router>
   )

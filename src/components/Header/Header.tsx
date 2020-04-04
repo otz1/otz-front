@@ -2,7 +2,7 @@ import React from 'react'
 import './Header.css'
 
 interface HeaderProps {
-  children: any
+  children?: any
 }
 
 const Header = ({ children }: HeaderProps) => {
@@ -10,7 +10,7 @@ const Header = ({ children }: HeaderProps) => {
     <header id='top-header'>
       <div className='container'>
         <h1 className='logo'>{window.location.host} <span className='tagline'>search with otzit!</span></h1>
-        {children}
+        {children && children}
       </div>
     </header>
   )

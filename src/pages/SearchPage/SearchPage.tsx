@@ -9,11 +9,7 @@ import { LoadingContainer } from './LoadingUtils'
 import { SearchResultContainer } from './SearchResultContainer'
 import { Header } from 'components/Header/Header'
 import { Footer } from 'components/Footer/Footer'
-
-const resizeHeader = () => {
-  const header = document.querySelector('#top-header')
-  header?.classList.add('smaller')
-}
+import { resizeHeader } from 'pages/util'
 
 const SearchPage = () => {
   const [searchResult, setSearchResult] = useState<SearchResult>({
