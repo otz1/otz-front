@@ -3,3 +3,7 @@
   flex-direction: column;
   width: 80%;
 }
+
+.keyword {
+  font-weight: bold;
+}
