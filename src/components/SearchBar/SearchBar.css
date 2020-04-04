@@ -19,4 +19,12 @@
   font-family: Helvetica, sans-serif;
   font-size: 14pt;
   border: 2px solid white;
+
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+#search-btn {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }

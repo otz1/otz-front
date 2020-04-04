@@ -28,7 +28,7 @@ const SearchBar = ({ processSearchHandler }: SearchBarProps) => {
           onKeyUp={handleKeyUp}
           autoFocus={true}
         />
-        <Button data-testid='submit-search-query-btn' onClick={handleSubmit}>
+        <Button id='search-btn' data-testid='submit-search-query-btn' onClick={handleSubmit}>
           <FontAwesomeIcon icon={faSearch} />
         </Button>
       </div>
