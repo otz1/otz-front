@@ -27,7 +27,7 @@
   "scripts": {
     "lint": "git ls-files | grep -E '(.js|.ts(x))$' | xargs standard --fix",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && echo 'loaderio-722f6400518880b2b6a4ba337ad26984' >> build/loaderio-722f6400518880b2b6a4ba337ad26984.txt",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "live-server": "nodemon live-server/index.js",
