@@ -32,7 +32,10 @@ const App = () => {
   )
 }
 
-Sentry.init({dsn: "https://84a869b169d54966870f599e2f34892a@sentry.io/5188279"});
+Sentry.init({
+  dsn: process.env.REACT_APP_SENTRY_DSN,
+  environment: process.env.REACT_APP_ENVIRONMENT
+});
 
 ReactDOM.render(<App />, document.getElementById('root'))
 
