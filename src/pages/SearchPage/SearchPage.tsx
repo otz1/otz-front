@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import './SearchPage.css'
 
+import queryString from 'query-string'
+
 import { SearchResult } from 'model/model'
 import { SearchBar } from 'components/SearchBar/SearchBar'
 import { SearchService } from 'services/searchService'
@@ -10,6 +12,7 @@ import { SearchResultContainer } from './SearchResultContainer'
 import { Header } from 'components/Header/Header'
 import { Footer } from 'components/Footer/Footer'
 import { resizeHeader } from 'pages/util'
+import { useLocation } from 'react-router-dom'
 
 const SearchPage = () => {
   const [searchResult, setSearchResult] = useState<SearchResult>({
@@ -20,8 +23,9 @@ const SearchPage = () => {
     searchTerms: [],
   })
 
-  // TODO high order component for loading.
+  const location = useLocation()
   const [loading, setLoading] = useState(false)
+  const [initialQuery, setInitialQuery] = useState('')
 
   const handleProcessSearch = async (query: string) => {
     if (!query || query.length === 0) {
@@ -42,13 +46,22 @@ const SearchPage = () => {
   }
 
   useEffect(() => {
+    const values = queryString.parse(location.search)
+    const { query } = values
+    if (query) {
+      setInitialQuery(query as string)
+      handleProcessSearch(query as string)
+    }
+  }, [location])
+
+  useEffect(() => {
     setLoading(false)
   }, [searchResult])
 
   return (
     <>
       <Header>
-        <SearchBar processSearchHandler={handleProcessSearch} />
+        <SearchBar initialQuery={initialQuery} processSearchHandler={handleProcessSearch} />
       </Header>
 
       <main>

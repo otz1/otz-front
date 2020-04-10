@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker'
 import './index.css'
 
 import { SearchPage } from './pages/SearchPage/SearchPage'
+import { MainSearchPage } from './pages/SearchPage/MainSearchPage'
 import { PrivacyPolicyPage } from './pages/PrivacyPolicy/PrivacyPolicyPage'
 
 const RouteWithScroll = (children: any) => {
@@ -18,6 +19,9 @@ const App = () => {
     <Router>
       <Switch>
         <RouteWithScroll exact path='/'>
+          <MainSearchPage/>
+        </RouteWithScroll>
+        <RouteWithScroll exact path='/search'>
           <SearchPage/>
         </RouteWithScroll>
         <RouteWithScroll path='/privacy-policy'>
