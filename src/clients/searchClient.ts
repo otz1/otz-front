@@ -1,6 +1,9 @@
 const selectSearchClientHost = () => {
   // todo production and staging servers
-  return 'otzbe.otzaf.org'
+  if (process.env.REACT_APP_ENVIRONMENT == 'prod') {
+    return 'otzbe.otzaf.org'
+  }
+  return 'otzbe.qa.otzaf.org'
 }
 
 const SearchClient = {
