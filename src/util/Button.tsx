@@ -3,6 +3,7 @@ import './Button.css'
 
 interface ButtonProps {
   onClick: () => void
+  id?: string
   children: any
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './SearchBar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
@@ -6,14 +6,21 @@ import { Button } from 'util/Button'
 
 interface SearchBarProps {
   processSearchHandler: (query: string) => void
+  initialQuery?: string
 }
 
-const SearchBar = ({ processSearchHandler }: SearchBarProps) => {
+const SearchBar = ({ processSearchHandler, initialQuery }: SearchBarProps) => {
   const [query, setQuery] = useState('')
 
   const handleOnChange = (e: any) => setQuery(e.target.value)
   const handleKeyUp = (e: any) => { if (e.keyCode === 13) processSearchHandler(query) }
   const handleSubmit = () => processSearchHandler(query)
+
+  useEffect(() => {
+    if (initialQuery) {
+      setQuery(initialQuery)
+    }
+  }, [initialQuery])
 
   return (
     <div className='search-bar-container'>
@@ -28,7 +35,7 @@ const SearchBar = ({ processSearchHandler }: SearchBarProps) => {
           onKeyUp={handleKeyUp}
           autoFocus={true}
         />
-        <Button data-testid='submit-search-query-btn' onClick={handleSubmit}>
+        <Button id='search-btn' data-testid='submit-search-query-btn' onClick={handleSubmit}>
           <FontAwesomeIcon icon={faSearch} />
         </Button>
       </div>

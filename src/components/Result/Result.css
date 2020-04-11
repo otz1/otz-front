@@ -1,0 +1,47 @@
+.result {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1em;
+  background: #f1f1f1;
+  margin-bottom: 0.5em;
+  border-radius: 5px;
+}
+.result:hover {
+  background: #dbdbdb;
+  cursor: pointer;
+}
+
+.result-head .title {
+  font-size: 12pt;
+  color: red;
+}
+
+.result a {
+  color: #111;
+}
+
+.result .raw-link a {
+  color: rgba(10, 10, 10, 0.6);
+  text-decoration: none;
+  font-size: 11pt;
+}
+
+.result-thumb {
+  display: block;
+  width: 10%;
+}
+.result-thumb img {
+  max-width: 64px;
+  max-height: 64px;
+}
+
+.result-detail {
+  display: block;
+  width: 87%;
+}
+
+.result-container-anchor {
+  text-decoration: none;
+}

@@ -1,0 +1,13 @@
+.page-select {
+    margin: 0.5em 0;
+}
+
+.page-selector-btn {
+    font-size: 14pt;
+    margin-right: 0.5em;
+    cursor: pointer;
+}
+
+.page-selector-btn.current {
+    font-weight: bold;
+}

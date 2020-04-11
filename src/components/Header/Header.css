@@ -1,0 +1,35 @@
+header {
+  display: block;
+  background: #3952ae;
+  width: 100%;
+  min-height: 100vh;
+  color: white;
+}
+
+header .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+  height: calc(100vh - (89px + 1em));
+  margin: 0 auto;
+  padding: 1em 0;
+}
+
+header.smaller .container {
+  height: 100% !important;
+}
+header.smaller {
+  min-height: 80% !important;
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  header .container {
+    width: 90%;
+  }
+}

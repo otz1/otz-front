@@ -1,0 +1,10 @@
+.results-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.keyword {
+  font-weight: bold;
+  color: #3952ae;
+}
