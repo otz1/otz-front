@@ -29,7 +29,7 @@ const ResultContainer = ({ searchTerms, results, numPages }: ResultContainerProp
 
   const rankedResults = results.slice(resultRange.start, resultRange.end).sort((a, b) => a.ranking - b.ranking)
   const resultSet = rankedResults.map((result: ResultModel, idx: number) => {
-    return <Result key={`result_${idx}`} result={result} searchTerms={searchTerms} />
+    return <Result index={idx} key={`result_${idx}`} result={result} searchTerms={searchTerms} />
   })
 
   const onPageSelect = (index: number) => setResultRange(sliceResultSet(index))

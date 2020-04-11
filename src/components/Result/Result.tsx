@@ -7,17 +7,18 @@ import { Parser as HtmlToReactParser } from 'html-to-react'
 import { Result as ResultModel } from 'model/model'
 
 interface ResultProps {
+  index: number
   result: ResultModel
   searchTerms: string[]
 }
 
-const Result = ({ result, searchTerms }: ResultProps) => {
+const Result = ({ index, result, searchTerms }: ResultProps) => {
   const { title, href, thumbnailSource, snippet } = result
 
   const showThumbnail = thumbnailSource && thumbnailSource !== ''
 
   return (
-    <div className='result'>
+    <div className='result' id={`rs-${index}`}>
       <a className='result-container-anchor' href={href}>
         { (showThumbnail) && <div className='result-thumb'>
           <img src={thumbnailSource}/>
