@@ -6,6 +6,14 @@ header {
   color: white;
 }
 
+.logoLink {
+  color: white;
+  text-decoration: none;
+}
+.logoLink:hover {
+  text-decoration: underline;
+}
+
 header .container {
   display: flex;
   flex-direction: column;
