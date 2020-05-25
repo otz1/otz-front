@@ -13,7 +13,8 @@ const SearchClient = {
     const response = await fetch(`https://${SearchClient.Host}/search?query=${query}`, {
       method: 'GET',
       headers: {
-        // TODO send the site code header.
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
       }
     })
     const results = await response.json()
