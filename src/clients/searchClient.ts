@@ -1,5 +1,4 @@
 const selectSearchClientHost = () => {
-  // todo production and staging servers
   if (process.env.REACT_APP_ENVIRONMENT == 'prod') {
     return 'otzbe.otzaf.org'
   }
@@ -13,7 +12,8 @@ const SearchClient = {
     const response = await fetch(`https://${SearchClient.Host}/search?query=${query}`, {
       method: 'GET',
       headers: {
-        // TODO send the site code header.
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
       }
     })
     const results = await response.json()

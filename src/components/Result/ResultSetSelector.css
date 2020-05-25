@@ -3,11 +3,13 @@
 }
 
 .page-selector-btn {
+    display: block;
+    padding: 0.5em;
+    background: #f5f5f5;
+    border-radius: 5px;
+    text-align: center;
     font-size: 14pt;
-    margin-right: 0.5em;
     cursor: pointer;
-}
-
-.page-selector-btn.current {
+    margin-bottom: 1em;
     font-weight: bold;
 }
