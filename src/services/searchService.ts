@@ -1,7 +1,6 @@
 import { SearchClient } from 'clients/searchClient'
 
 const SearchService = {
-  // TODO types for result
   processSearch: async (query: string) => {
     const searchQuery: string = encodeURIComponent(query.trim())
 
